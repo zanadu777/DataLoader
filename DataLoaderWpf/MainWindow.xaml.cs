@@ -23,6 +23,7 @@ namespace DataLoaderWpf
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowVm();
         }
     }
 }

@@ -4,9 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataLoaderWpf"
+        xmlns:designTime="clr-namespace:DataLoaderWpf.DesignTime"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
         
-    </Grid>
+       d:DataContext="{x:Static designTime:DesignTimeData.MainWindowVm}"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <ToolBarTray Background="White" DockPanel.Dock="Top">
+            <ToolBar Band="1" BandIndex="1">
+                <Button   Command="{ Binding RunQueryCommand}">
+                    <Image Source="goIcon.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TabControl Grid.Row="0">
+                <TabItem>
+                    <TextBox Text="{Binding Query}"/>
+                </TabItem>
+            </TabControl>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkKhaki"/>
+
+            <TabControl Grid.Row="2">
+                <TabItem Header="Query Result">
+                    <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource ="{Binding QueryResult}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" />
+                </TabItem>
+            </TabControl>
+
+        </Grid>
+    </DockPanel>
 </Window>
