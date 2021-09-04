@@ -104,10 +104,17 @@
     <Resource Include="goIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataLoader.Connectors.SqllServer\DataLoader.Connectors.SqllServer.csproj">
+      <Project>{fc36b89d-eee4-4ec3-b35f-54f5aa6cd934}</Project>
+      <Name>DataLoader.Connectors.SqllServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataLoader.Connectors.Teradata\DataLoader.Connectors.Teradata.csproj">
       <Project>{d189d343-7cf4-4fc2-ac43-f08458ce5834}</Project>
       <Name>DataLoader.Connectors.Teradata</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DatabaseSql.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

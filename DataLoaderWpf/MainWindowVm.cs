@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using DataLoader.Connectors.SqllServer;
 using DataLoader.Connectors.Teradata;
 using DataLoaderWpf.Annotations;
 using DataLoaderWpf.Misc;
@@ -18,11 +19,30 @@ namespace DataLoaderWpf
   public  class MainWindowVm:INotifyPropertyChanged
     {
         public ICommand RunQueryCommand { get; set; }
+        public ICommand GenerateSqlCommand { get; set; }
+
+        public string GeneratedSql
+        {
+            get => generatedSql;
+            set
+            {
+                if (value == generatedSql) return;
+                generatedSql = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public MainWindowVm()
         {
             RunQueryCommand = new DelegateCommand(RunQuery, x=> true);
+            GenerateSqlCommand = new DelegateCommand(GenerateSql, x => true  );// x => QueryResult != null && QueryResult.Rows.Count > 0 should work
+        }
+
+        private void GenerateSql(object obj)
+        {
+            SqlConnector = new SqlServerConnector(SqlServerConfig);
+            GeneratedSql = SqlConnector.GenerateSql(QueryResult);
         }
 
         private void RunQuery(object o)
@@ -36,7 +56,11 @@ namespace DataLoaderWpf
         public TeradataConnector Connector { get; set; }
         public TeradataConfig Config { get; set; } = new();
 
+        SqlServerConfig SqlServerConfig { get; set; } = new();
+        SqlServerConnector SqlConnector { get; set; }
+
         private DataTable queryResult;
+        private string generatedSql;
 
         public DataTable QueryResult
         {
