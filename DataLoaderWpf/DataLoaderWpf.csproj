@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Data-Information.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -101,7 +104,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="goIcon.png" />
+    <Resource Include="Resources\goIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLoader.Connectors.SqllServer\DataLoader.Connectors.SqllServer.csproj">
@@ -112,9 +115,19 @@
       <Project>{d189d343-7cf4-4fc2-ac43-f08458ce5834}</Project>
       <Name>DataLoader.Connectors.Teradata</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLoader.Core\DataLoader.Core.csproj">
+      <Project>{d768b5ea-4366-4316-bd38-73e4644cbd5c}</Project>
+      <Name>DataLoader.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="DatabaseSql.png" />
+    <Resource Include="Resources\DatabaseSql.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Data-Information.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

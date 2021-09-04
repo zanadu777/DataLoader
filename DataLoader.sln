@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoaderWpf", "DataLoaderWpf\DataLoaderWpf.csproj", "{7E906913-3A10-4523-B52B-D4BE71618209}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader.Core", "DataLoader.Core\DataLoader.Core.csproj", "{D768B5EA-4366-4316-BD38-73E4644CBD5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connectors", "Connectors", "{8E627A07-18F4-4E22-B01D-B462758C5A1A}"
@@ -15,16 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader.Connectors.Terad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader,Connectors.DeliminatedText", "DataLoader,Connectors.DeliminatedText\DataLoader,Connectors.DeliminatedText.csproj", "{13DDACE3-9F0D-4610-9F89-DB662025CF1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoaderWpf", "DataLoaderWpf\DataLoaderWpf.csproj", "{7E906913-3A10-4523-B52B-D4BE71618209}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E906913-3A10-4523-B52B-D4BE71618209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E906913-3A10-4523-B52B-D4BE71618209}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E906913-3A10-4523-B52B-D4BE71618209}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E906913-3A10-4523-B52B-D4BE71618209}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D768B5EA-4366-4316-BD38-73E4644CBD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D768B5EA-4366-4316-BD38-73E4644CBD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D768B5EA-4366-4316-BD38-73E4644CBD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{13DDACE3-9F0D-4610-9F89-DB662025CF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13DDACE3-9F0D-4610-9F89-DB662025CF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13DDACE3-9F0D-4610-9F89-DB662025CF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E906913-3A10-4523-B52B-D4BE71618209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E906913-3A10-4523-B52B-D4BE71618209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E906913-3A10-4523-B52B-D4BE71618209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E906913-3A10-4523-B52B-D4BE71618209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -47,6 +47,7 @@
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\StringbuilderExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

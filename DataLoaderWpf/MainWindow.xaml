@@ -8,18 +8,40 @@
         mc:Ignorable="d"
         
        d:DataContext="{x:Static designTime:DesignTimeData.MainWindowVm}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="Resources/Data-Information.ico">
     <DockPanel>
         <ToolBarTray Background="White" DockPanel.Dock="Top">
             <ToolBar Band="1" BandIndex="1">
                 <Button   Command="{ Binding RunQueryCommand}">
-                    <Image Source="goIcon.png"/>
+                    <Image Source="Resources/goIcon.png"/>
                 </Button>
                 <Button   Command="{ Binding GenerateSqlCommand}">
-                    <Image Source="DatabaseSql.png"/>
+                    <Image Source="Resources/DatabaseSql.png"/>
+                </Button>
+                <Button   Command="{ Binding TransferDataCommand}">
+                    <Image Source="Resources/Transfer.png"/>
                 </Button>
             </ToolBar>
         </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem>
+                <TextBlock>
+                    <Run Text="{Binding LastAction}" />
+                    <Run> </Run>
+                    <Run Text="{Binding FormattedLastTime}"/>
+                </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
