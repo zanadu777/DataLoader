@@ -47,6 +47,10 @@ namespace DataLoader.Connectors.SqllServer
                     {
                         if (col.DataType == typeof(int))
                             cmd.Parameters.Add(new SqlParameter($"@{col.ColumnName}", SqlDbType.Int));
+
+                        if (col.DataType == typeof(decimal))
+                            cmd.Parameters.Add($"@{col.ColumnName}", SqlDbType.Decimal, 5);
+
                         if (col.DataType == typeof(string))
                         {
                             var max = (from DataRow d in dt.Rows

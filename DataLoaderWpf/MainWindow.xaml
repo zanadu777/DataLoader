@@ -10,6 +10,14 @@
        d:DataContext="{x:Static designTime:DesignTimeData.MainWindowVm}"
         Title="MainWindow" Height="450" Width="800" Icon="Resources/Data-Information.ico">
     <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Save Data" Command="{Binding SaveDataTableCommand}" />
+                <MenuItem Header="_Load Data" Command="{Binding LoadDataTableCommand}"/>
+                <!--<MenuItem Header="_Close"/>
+                <MenuItem Header="_Save"/>-->
+            </MenuItem>
+        </Menu>
         <ToolBarTray Background="White" DockPanel.Dock="Top">
             <ToolBar Band="1" BandIndex="1">
                 <Button   Command="{ Binding RunQueryCommand}">
@@ -51,18 +59,26 @@
 
             <TabControl Grid.Row="0">
                 <TabItem>
-                    <TextBox Text="{Binding Query}"/>
+                    <TextBox Text="{Binding Query, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True"/>
                 </TabItem>
             </TabControl>
             <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkKhaki"/>
 
             <TabControl Grid.Row="2">
                 <TabItem Header="Query Result">
-                    <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource ="{Binding QueryResult}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Text="Table Name" Height="23" VerticalAlignment="Center" Margin="0,2,4,0"/><TextBox Height="23" Width="200" VerticalAlignment="Center" Text="{Binding TableName, UpdateSourceTrigger=PropertyChanged}"/></StackPanel>
+                        <DataGrid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  ItemsSource ="{Binding QueryResult}" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" />
+                    </Grid>
                 </TabItem>
 
                 <TabItem Header="Generated SQL">
-                    <TextBox VerticalAlignment="Stretch"  Text ="{Binding GeneratedSql}"  AcceptsReturn="True" />
+                    <TextBox VerticalAlignment="Stretch"  Text ="{Binding GeneratedSql}"   AcceptsReturn="True" />
                 </TabItem>
             </TabControl>
 

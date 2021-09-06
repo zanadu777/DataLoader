@@ -28,6 +28,9 @@ namespace DataLoader.Connectors.SqllServer.Extensions
             if (column.DataType == typeof(int))
                 return "int";
 
+            if (column.DataType == typeof(decimal))
+                return "Decimal(5,0)";
+
             if (column.DataType == typeof(string))
             {
                 var max = (from DataRow d in dt.Rows
